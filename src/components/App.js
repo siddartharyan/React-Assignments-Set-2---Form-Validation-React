@@ -17,18 +17,6 @@ const App = () => {
       setMsg("Name Error");
       return;
     }
-    if (!email) {
-      setMsg("Email Error");
-      return;
-    }
-    if (!number) {
-      setMsg("Phone Number Error");
-      return;
-    }
-    if (!password) {
-      setMsg("Password Error");
-      return;
-    }
     let al = 0,
       num = 0;
     for (let i = 0; i < name.length; i++) {
@@ -43,6 +31,12 @@ const App = () => {
       setMsg("Name is not alphanumeric");
       return;
     }
+
+    if (!email) {
+      setMsg("Email Error");
+      return;
+    }
+
     let naMe = "";
     for (let i = 0; i < email.length; i++) {
       if (email[i] === "@") {
@@ -58,10 +52,22 @@ const App = () => {
       setMsg("Please identify as male, female or others");
       return;
     }
+
+    if (!number) {
+      setMsg("Phone Number Error");
+      return;
+    }
+
     if (isNaN(number)) {
       setMsg("Phone Number must contain only numbers");
       return;
     }
+
+    if (!password) {
+      setMsg("Password Error");
+      return;
+    }
+
     if (password.length < 6) {
       setMsg("Password must contain atleast 6 letters");
       return;
