@@ -3,39 +3,40 @@ import "../styles/App.css";
 const App = () => {
   let [msg, setMsg] = useState("");
   let [suc, setSuc] = useState(false);
-  const handleClick = () => {
-    if (suc === true) {
-      setSuc(false);
-      setMsg("");
-    }
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let gender = document.getElementById("gender").value;
-    let number = document.getElementById("phoneNumber").value;
-    let password = document.getElementById("password").value;
-    if (!name && !email && !gender && !number && !password) {
+  const handleClick = (evt) => {
+    evt.preventDefault();
+    setMsg("");
+    let name = evt.target.name.value;
+    let email = evt.target.email.value;
+    let gender = evt.target.gender.value;
+    let number = evt.target.phoneNumber.value;
+    let password = evt.target.password.value;
+    if (!name || !email || !gender || !number || !password) {
       setMsg("All fields are mandatory");
       return;
     }
 
-    if (!name) {
-      setMsg("Name Error");
-      return;
-    }
-    if (!email) {
-      setMsg("Email Error");
-      return;
-    }
+    // if (!name) {
+    //   setMsg("Name is not alphanumeric");
+    //   return;
+    // }
+    // if (!email) {
+    //   setMsg("Email must contain @");
+    //   return;
+    // }
+    // if (!gender) {
+    //   setMsg("Please identify as male, female or others");
+    //   return;
+    // }
+    // if (!number) {
+    //   setMsg("Phone Number must contain only numbers");
+    //   return;
+    // }
 
-    if (!number) {
-      setMsg("Phone Number Error");
-      return;
-    }
-
-    if (!password) {
-      setMsg("Password Error");
-      return;
-    }
+    // if (!password) {
+    //   setMsg("Password must contain atleast 6 letters");
+    //   return;
+    // }
 
     let al = 0,
       num = 0;
@@ -47,7 +48,6 @@ const App = () => {
         al++;
       } else if (Number(name[i]) >= 0 && Number(name[i]) <= 9) {
         num++;
-        break;
       }
     }
     if (!al || !num) {
@@ -81,26 +81,25 @@ const App = () => {
       return;
     }
     setMsg(`Hello ${naMe}`);
-    setSuc(true);
   };
   return (
     <div id="main">
       <p>{msg}</p>
-      <>
-        <input data-testid="name" id="name" />
+      <form onSubmit={handleClick}>
+        <input data-testid="name" name="name" />
         <br />
-        <input data-testid="email" id="email" />
+        <input data-testid="email" name="email" />
         <br />
-        <input data-testid="gender" id="gender" value="male" />
+        <input data-testid="gender" name="gender" defaultValue="male" />
         <br />
-        <input data-testid="phoneNumber" id="phoneNumber" />
+        <input data-testid="phoneNumber" name="phoneNumber" />
         <br />
-        <input data-testid="password" id="password" type="password" />
+        <input data-testid="password" name="password" type="password" />
         <br />
-        <button data-testid="submit" onClick={handleClick}>
+        <button data-testid="submit" type="submit">
           submit
         </button>
-      </>
+      </form>
     </div>
   );
 };
