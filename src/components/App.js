@@ -87,15 +87,29 @@ const App = () => {
     <div id="main">
       <p>{msg}</p>
       <>
-        <input data-testid="name" id="name" />
+        <input data-testid="name" id="name" onChange={handleClick} />
         <br />
-        <input data-testid="email" id="email" />
+        <input data-testid="email" id="email" onChange={handleClick} />
         <br />
-        <input data-testid="gender" id="gender" value="male" />
+        <input
+          data-testid="gender"
+          id="gender"
+          value="male"
+          onChange={handleClick}
+        />
         <br />
-        <input data-testid="phoneNumber" id="phoneNumber" />
+        <input
+          data-testid="phoneNumber"
+          id="phoneNumber"
+          onChange={handleClick}
+        />
         <br />
-        <input data-testid="password" id="password" type="password" />
+        <input
+          data-testid="password"
+          id="password"
+          type="password"
+          onChange={handleClick}
+        />
         <br />
         <button data-testid="submit" onClick={handleClick}>
           submit
