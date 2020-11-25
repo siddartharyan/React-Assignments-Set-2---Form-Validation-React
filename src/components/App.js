@@ -4,7 +4,6 @@ const App = () => {
   let [msg, setMsg] = useState("");
   let [suc, setSuc] = useState(false);
   const handleClick = (evt) => {
-    evt.preventDefault();
     setMsg("");
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
