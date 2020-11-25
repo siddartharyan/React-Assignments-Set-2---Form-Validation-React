@@ -56,13 +56,15 @@ const App = () => {
     }
 
     let naMe = "";
+    let found = false;
     for (let i = 0; i < email.length; i++) {
       if (email[i] === "@") {
+        found = true;
         break;
       }
       naMe += email[i];
     }
-    if (naMe.length === email.length) {
+    if (naMe.length === email.length || !found) {
       setMsg("Email must contain @");
       return;
     }
