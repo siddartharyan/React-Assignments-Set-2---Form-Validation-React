@@ -18,10 +18,26 @@ const App = () => {
       setMsg("All fields are mandatory");
       return;
     }
+
     if (!name) {
       setMsg("Name Error");
       return;
     }
+    if (!email) {
+      setMsg("Email Error");
+      return;
+    }
+
+    if (!number) {
+      setMsg("Phone Number Error");
+      return;
+    }
+
+    if (!password) {
+      setMsg("Password Error");
+      return;
+    }
+
     let al = 0,
       num = 0;
     for (let i = 0; i < name.length; i++) {
@@ -37,11 +53,6 @@ const App = () => {
     }
     if (!al || !num) {
       setMsg("Name is not alphanumeric");
-      return;
-    }
-
-    if (!email) {
-      setMsg("Email Error");
       return;
     }
 
@@ -61,18 +72,8 @@ const App = () => {
       return;
     }
 
-    if (!number) {
-      setMsg("Phone Number Error");
-      return;
-    }
-
     if (isNaN(number)) {
       setMsg("Phone Number must contain only numbers");
-      return;
-    }
-
-    if (!password) {
-      setMsg("Password Error");
       return;
     }
 
