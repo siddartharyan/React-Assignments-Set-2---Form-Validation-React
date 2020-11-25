@@ -10,23 +10,23 @@ const App = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleNameChange = (evt) => {
+  const handleName = (evt) => {
     setName(evt.target.value);
   };
 
-  const handleEmailChange = (evt) => {
+  const handleEmail = (evt) => {
     setEmail(evt.target.value);
   };
 
-  const handleGendeChange = (evt) => {
+  const handleGender = (evt) => {
     setGender(evt.target.value);
   };
 
-  const handlePhoneNumberChange = (evt) => {
+  const handlePhoneNumber = (evt) => {
     setPhoneNumber(evt.target.value);
   };
 
-  const handlePasswordChange = (evt) => {
+  const handlePassword = (evt) => {
     setPassword(evt.target.value);
   };
 
@@ -59,13 +59,6 @@ const App = () => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     setWelcomeMessage("");
-
-    // const name = evt.target.name.value;
-    // const email = evt.target.email.value;
-    // const gender = evt.target.gender.value;
-    // const phone = evt.target.phoneNumber.value;
-    // const password = evt.target.password.value;
-
     if (!name || !email || !gender || !phoneNumber || !password) {
       setErrorMessage("All fields are mandatory");
       return;
@@ -101,7 +94,7 @@ const App = () => {
           // name = 'name'
           // type='string'
           value={name}
-          onChange={handleNameChange}
+          onChange={handleName}
         />
       </div>
 
@@ -112,7 +105,7 @@ const App = () => {
           // name = 'email'
           // type='string'
           value={email}
-          onChange={handleEmailChange}
+          onChange={handleEmail}
         />
       </div>
 
@@ -124,7 +117,7 @@ const App = () => {
           // type='text'
           // defaultValue = 'male'
           value={gender}
-          onChange={handleGendeChange}
+          onChange={handleGender}
         />
       </div>
 
@@ -134,7 +127,7 @@ const App = () => {
           data-testid="phoneNumber"
           // name = 'phoneNumber'
           value={phoneNumber}
-          onChange={handlePhoneNumberChange}
+          onChange={handlePhoneNumber}
         />
       </div>
 
@@ -144,7 +137,7 @@ const App = () => {
           data-testid="password"
           // name = 'password'
           value={password}
-          onChange={handlePasswordChange}
+          onChange={handlePassword}
           type="password"
         />
       </div>
