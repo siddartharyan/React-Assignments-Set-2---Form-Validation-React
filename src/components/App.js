@@ -7,7 +7,6 @@ const App = () => {
     if (suc === true) {
       setSuc(false);
       setMsg("");
-      return;
     }
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
