@@ -63,7 +63,7 @@ const App = () => {
       naMe += email[i];
     }
     if (!email.includes("@")) {
-      setMsg("Email must contain @");
+      setMsg("Email must contain @.");
       return;
     }
     if (gender !== "male" && gender !== "female" && gender !== "others") {
