@@ -4,6 +4,11 @@ const App = () => {
   let [msg, setMsg] = useState("");
   let [suc, setSuc] = useState(false);
   const handleClick = () => {
+    if (suc === true) {
+      setSuc(false);
+      setMsg("");
+      return;
+    }
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
     let gender = document.getElementById("gender").value;
@@ -20,9 +25,12 @@ const App = () => {
     let al = 0,
       num = 0;
     for (let i = 0; i < name.length; i++) {
-      if (name[i] >= "a" && name[i] <= "z") {
+      if (
+        (name[i] >= "a" && name[i] <= "z") ||
+        (name[i] >= "A" && name[i] <= "Z")
+      ) {
         al++;
-      } else if (al && Number(name[i]) >= 0 && Number(name[i]) <= 9) {
+      } else if (Number(name[i]) >= 0 && Number(name[i]) <= 9) {
         num++;
         break;
       }
@@ -78,25 +86,21 @@ const App = () => {
   return (
     <div id="main">
       <p>{msg}</p>
-      {suc === false ? (
-        <>
-          <input data-testid="name" id="name" />
-          <br />
-          <input data-testid="email" id="email" />
-          <br />
-          <input data-testid="gender" id="gender" value="male" />
-          <br />
-          <input data-testid="phoneNumber" id="phoneNumber" />
-          <br />
-          <input data-testid="password" id="password" />
-          <br />
-          <button data-testid="submit" onClick={handleClick}>
-            submit
-          </button>
-        </>
-      ) : (
-        ""
-      )}
+      <>
+        <input data-testid="name" id="name" />
+        <br />
+        <input data-testid="email" id="email" />
+        <br />
+        <input data-testid="gender" id="gender" value="male" />
+        <br />
+        <input data-testid="phoneNumber" id="phoneNumber" />
+        <br />
+        <input data-testid="password" id="password" type="password" />
+        <br />
+        <button data-testid="submit" onClick={handleClick}>
+          submit
+        </button>
+      </>
     </div>
   );
 };
