@@ -6,11 +6,11 @@ const App = () => {
   const handleClick = (evt) => {
     evt.preventDefault();
     setMsg("");
-    let name = evt.target.name.value;
-    let email = evt.target.email.value;
-    let gender = evt.target.gender.value;
-    let number = evt.target.phoneNumber.value;
-    let password = evt.target.password.value;
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let gender = document.getElementById("gender").value;
+    let number = document.getElementById("phoneNumber").value;
+    let password = document.getElementById("password").value;
     if (!name || !email || !gender || !number || !password) {
       setMsg("All fields are mandatory");
       return;
@@ -85,21 +85,21 @@ const App = () => {
   return (
     <div id="main">
       <p>{msg}</p>
-      <form onSubmit={handleClick}>
-        <input data-testid="name" name="name" />
+      <>
+        <input data-testid="name" id="name" />
         <br />
-        <input data-testid="email" name="email" />
+        <input data-testid="email" id="email" />
         <br />
-        <input data-testid="gender" name="gender" defaultValue="male" />
+        <input data-testid="gender" id="gender" defaultValue="male" />
         <br />
-        <input data-testid="phoneNumber" name="phoneNumber" />
+        <input data-testid="phoneNumber" id="phoneNumber" />
         <br />
-        <input data-testid="password" name="password" type="password" />
+        <input data-testid="password" id="password" type="password" />
         <br />
-        <button data-testid="submit" type="submit">
+        <button data-testid="submit" type="submit" onClick={handleClick}>
           submit
         </button>
-      </form>
+      </>
     </div>
   );
 };
